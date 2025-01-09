@@ -26,6 +26,7 @@
         </nav>
     </header>
 
+
     <?php wp_footer(); ?>
     <script>
         // JavaScript to toggle the menu
