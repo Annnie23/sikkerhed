@@ -12,7 +12,7 @@ Author: Anne-Sophie Holm Gram Nielsen
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f1f1f1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,12 +21,51 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 4.2rem;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: #41593B;
 }
+p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #14261E;
+}
+
+.button{
+    background-color:#14261E ;
+    color:#C4D9B0 ;
+    font-size:1.4rem ;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover{
+    background-color:#41593B ;
+}
+
+/* Color Theme Swatches in Hex */
+.whos-the-boss-1-hex { color: #3E3C2F; }
+.whos-the-boss-2-hex { color: #C4D9B0; }
+.whos-the-boss-3-hex { color: #728B64; }
+.whos-the-boss-4-hex { color: #41593B; }
+.whos-the-boss-5-hex { color: #14261E; }
+
+/* Color Theme Swatches in RGBA */
+.whos-the-boss-1-rgba { color: rgba(61, 59, 47, 1); }
+.whos-the-boss-2-rgba { color: rgba(195, 216, 175, 1); }
+.whos-the-boss-3-rgba { color: rgba(114, 138, 100, 1); }
+.whos-the-boss-4-rgba { color: rgba(65, 89, 59, 1); }
+.whos-the-boss-5-rgba { color: rgba(19, 38, 29, 1); }
+
+/* Color Theme Swatches in HSLA */
+.whos-the-boss-1-hsla { color: hsla(52, 13, 21, 1); }
+.whos-the-boss-2-hsla { color: hsla(90, 35, 77, 1); }
+.whos-the-boss-3-hsla { color: hsla(98, 16, 46, 1); }
+.whos-the-boss-4-hsla { color: hsla(108, 20, 29, 1); }
+.whos-the-boss-5-hsla { color: hsla(153, 31, 11, 1); }
+
 
 
 
@@ -37,8 +76,8 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     z-index: 10;
     position: absolute; /* Gør knappen positionerbar */
@@ -49,7 +88,7 @@ h2 {
 .burger-menu span {
     width: 100%;
     height: 3px;
-    background-color: #2e4b2a; /* Militærgrøn */
+    background-color: #C4D9B0; /* Militærgrøn */
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
@@ -59,7 +98,7 @@ h2 {
     display: none; /* Start som skjult */
     flex-direction: column;
     list-style: none;
-    background-color: #2e4b2a; /* Militærgrøn */
+    background-color: #14261E; /* Militærgrøn */
     position: absolute;
     top: 80px;
     right: 20px; /* Juster for at åbne fra højre */
@@ -70,7 +109,8 @@ h2 {
 }
 
 .menu a {
-    color: white;
+    color: #C4D9B0;
+    font-size: 1.4rem;
     text-decoration: none;
     padding: 10px;
     text-align: center;
@@ -78,7 +118,7 @@ h2 {
 }
 
 .menu a:hover {
-    background-color: #ffa500; /* Orange */
+    background-color: #41593B; /* Orange */
     border-radius: 3px;
 }
 
@@ -130,34 +170,24 @@ h2 {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color: #C4D9B0;
     font-size: 2rem;
     font-weight: bold;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
     z-index: 2;
 }
 
+
 /* Content Section */
 .content-section {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    margin: 50px 20px;
-    padding: 0 20px;
+    margin: 80px 0;
 }
-
 .content-block {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
-}
-
-.content-block:nth-child(odd) {
-    flex-direction: row;
-}
-
-.content-block:nth-child(even) {
-    flex-direction: row-reverse;
+    padding: 20px;
+    margin: 20px;
 }
 
 .content-block img {
@@ -166,91 +196,42 @@ h2 {
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
 }
 
-.content-block h2 {
-    font-size: 1.8rem;
-    color: #2e4b2a; /* Militærgrøn */
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 40px;
+    height: 100%;
+    width: 100%;
+
 }
 
-.content-block p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.content-block .btn {
+.text-content .button {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ffa500; /* Orange */
-    color: white;
+    margin-top: 50px;
+    padding: 20px 20px;
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.content-block .btn:hover {
-    background-color: #ffd700; /* Guld */
-}
-
-/* Weapons Section */
-.weapons-section {
     text-align: center;
-    padding: 50px 20px;
-    background-color: #f9f8f2; /* Lys beige */
+
 }
 
-.weapons-section h2 {
-    font-size: 1.8rem;
-    color: #2e4b2a; /* Militærgrøn */
-    margin-bottom: 20px;
+.link-section {
+    text-align: center;
+    margin: 100px 0;
 }
-
-.weapon-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.weapon-links a {
+.link-section .button {
     display: inline-block;
-    width: 100px;
-    height: 100px;
-    background-color: #2e4b2a; /* Militærgrøn */
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    line-height: 100px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 40px;
+    padding: 20px;
     text-decoration: none;
+    border-radius: 5px;
+    background-color: #41593B;
 }
 
-.weapon-links a:hover {
-    background-color: #ffa500; /* Orange */
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-}
-
-/* Additional Content */
-.additional-content {
-    text-align: center;
-    margin: 50px auto;
-    max-width: 1200px;
-    padding: 0 20px;
-}
-
-.additional-content h2 {
-    font-size: 1.8rem;
-    color: #2e4b2a; /* Militærgrøn */
-    margin-bottom: 20px;
-}
-
-.additional-content img {
-    width: 80%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin: auto;
+.link-section .button:hover {
+    background-color: #14261E;
 }
