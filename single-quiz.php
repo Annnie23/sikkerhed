@@ -46,86 +46,146 @@ if ($query->have_posts()) :
         }
         ?>
 
-        <div id="quiz-container">
-            <h1><?php the_title(); ?></h1>
-            <form id="quiz-form">
-                <?php foreach ($questions as $index => $question) : ?>
-                    <div class="question">
-                        <h2><?php echo esc_html($question['text']); ?></h2>
-                        <?php if ($question['image']) : ?>
-                            <img src="<?php echo esc_url($question['image']); ?>" alt="Spørgsmål billede">
-                        <?php endif; ?>
-                        <?php if ($question['video']) : ?>
-                            <video controls>
-                                <source src="<?php echo esc_url($question['video']); ?>" type="video/mp4">
-                                Din browser understøtter ikke video-tagget.
-                            </video>
-                        <?php endif; ?>
-                        <ul>
-                            <?php foreach ($question['answers'] as $answerIndex => $answer) : ?>
-                                <li>
-                                    <label>
-                                        <input type="radio" name="question_<?php echo $index; ?>" value="<?php echo $answerIndex; ?>" data-correct="<?php echo $answer['is_correct'] ? 'true' : 'false'; ?>">
-                                        <?php echo esc_html($answer['text']); ?>
-                                    </label>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php endforeach; ?>
-                <button type="submit">Afslut Quiz</button>
-            </form>
-            <div id="quiz-results"></div>
+<?php
+$hero_image = get_field('hero_image', get_the_ID());
+$hero_text = get_field('hero_text', get_the_ID());
+?>
+
+<div class="content">
+<!-- Hero Section -->
+<div class="hero-section" style="background-image: url('<?php echo esc_url($hero_image); ?>');">
+    <div class="hero-text">
+        <h1><?php echo esc_html($hero_text); ?></h1>
+    </div>
+</div>
+
+</div>
+</div>
+
+<div id="quiz-container">
+    <!-- Startside -->
+    <div id="quiz-start">
+        <div class="start-content">
+            <img src="https://via.placeholder.com/400" alt="Quiz billede" class="start-image">
+            <h2 class="start-subtitle">Velkommen til Quizzen!</h2>
+            <p class="start-description">Test din viden og find ud af, hvor mange spørgsmål du kan svare rigtigt på.</p>
+            <button id="start-button" class="start-button">Start Quiz</button>
         </div>
+    </div>
 
-        <script>
-        document.getElementById('quiz-form').addEventListener('submit', function (e) {
-            e.preventDefault();
+    <!-- Quiz spørgsmål -->
+    <div id="quiz-questions" style="display: none;">
+        <h2><?php the_title(); ?></h2>
+        <form id="quiz-form">
+            <?php foreach ($questions as $index => $question) : ?>
+                <div class="question" data-question-index="<?php echo $index; ?>" style="display: <?php echo $index === 0 ? 'block' : 'none'; ?>;">
+                    <h2><?php echo esc_html($question['text']); ?></h2>
+                    <?php if ($question['image']) : ?>
+                        <img src="<?php echo esc_url($question['image']); ?>" alt="Spørgsmål billede">
+                    <?php endif; ?>
+                    <?php if ($question['video']) : ?>
+                        <video controls>
+                            <source src="<?php echo esc_url($question['video']); ?>" type="video/mp4">
+                            Din browser understøtter ikke video-tagget.
+                        </video>
+                    <?php endif; ?>
+                    <ul>
+                        <?php foreach ($question['answers'] as $answerIndex => $answer) : ?>
+                            <li>
+                                <label>
+                                    <input type="radio" name="question_<?php echo $index; ?>" value="<?php echo $answerIndex; ?>" data-correct="<?php echo $answer['is_correct'] ? 'true' : 'false'; ?>">
+                                    <?php echo esc_html($answer['text']); ?>
+                                </label>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endforeach; ?>
+            <div class="navigation">
+                <button type="button" id="prev-button" style="display: none;">Forrige</button>
+                <button type="button" id="next-button">Næste</button>
+                <button type="submit" id="finish-button" style="display: none;">Afslut Quiz</button>
+            </div>
+        </form>
+        <div id="quiz-results" style="display: none;"></div>
+    </div>
+</div>
 
-            // Find alle spørgsmål og brugerens svar
-            const questions = document.querySelectorAll('.question');
-            let correctAnswers = 0;
-            let totalQuestions = questions.length;
-            let feedback = ''; // To store the feedback for wrong answers
 
-            questions.forEach((question, index) => {
-                const selectedAnswer = question.querySelector('input[type="radio"]:checked');
-                if (selectedAnswer) {
-                    if (selectedAnswer.dataset.correct === 'true') {
-                        correctAnswers++;
-                    } else {
-                        // Tilføj feedback for forkert svar
-                        feedback += `<p>Spørgsmål ${index + 1}: Forkert svar.</p>`;
-                    }
-                }
-            });
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const startPage = document.getElementById('quiz-start');
+    const quizQuestions = document.getElementById('quiz-questions');
+    const startButton = document.getElementById('start-button');
 
-            // Vis resultatet til brugeren
-            const resultContainer = document.getElementById('quiz-results');
-            resultContainer.innerHTML = 
-                `<h2>Resultat</h2>
-                <p>Du svarede korrekt på ${correctAnswers} ud af ${totalQuestions} spørgsmål.</p>
-                ${feedback}`;
-            resultContainer.style.display = 'block';
+    startButton.addEventListener('click', function () {
+        startPage.style.display = 'none'; // Skjul startsiden
+        quizQuestions.style.display = 'block'; // Vis quizzen
+    });
+    
+    const questions = document.querySelectorAll('.question');
+    const nextButton = document.getElementById('next-button');
+    const prevButton = document.getElementById('prev-button');
+    const finishButton = document.getElementById('finish-button');
+    const resultsContainer = document.getElementById('quiz-results');
+    let currentQuestion = 0;
 
-            // Send data via POST uden JSON
-            const formData = new FormData();
-            formData.append('action', 'save_quiz_result');
-            formData.append('score', correctAnswers);
-            formData.append('total', totalQuestions);
-
-            fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => console.log(data.message))
-            .catch(error => console.error('Fejl:', error));
+    function showQuestion(index) {
+        questions.forEach((q, i) => {
+            q.style.display = i === index ? 'block' : 'none';
         });
-        </script>
+        prevButton.style.display = index > 0 ? 'inline-block' : 'none';
+        nextButton.style.display = index < questions.length - 1 ? 'inline-block' : 'none';
+        finishButton.style.display = index === questions.length - 1 ? 'inline-block' : 'none';
+    }
+
+    nextButton.addEventListener('click', function () {
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            showQuestion(currentQuestion);
+        }
+    });
+
+    prevButton.addEventListener('click', function () {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            showQuestion(currentQuestion);
+        }
+    });
+
+    document.getElementById('quiz-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let correctAnswers = 0;
+        let totalQuestions = questions.length;
+
+        questions.forEach((question, index) => {
+            const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+            if (selectedAnswer && selectedAnswer.dataset.correct === 'true') {
+                correctAnswers++;
+            }
+        });
+
+        resultsContainer.innerHTML = `
+            <h2>Resultat</h2>
+            <p>Du svarede korrekt på ${correctAnswers} ud af ${totalQuestions} spørgsmål.</p>
+        `;
+        resultsContainer.style.display = 'block';
+    });
+
+    showQuestion(currentQuestion);
+});
+</script>
+
 
     <?php endwhile;
 endif;
-
-get_footer();
 ?>
+
+
+</div>
+<?php
+get_footer(); // Indlæser footeren
+?>
+
+        

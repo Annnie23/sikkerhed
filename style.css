@@ -309,6 +309,182 @@ p {
     padding: 0 60px 0 0;
 }
 
+
+
+
+/* Generelle indstillinger for quizzen */
+#quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #C4D9B0; /* Light Beige */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Spørgsmål */
+.question {
+    padding: 20px;
+    border-bottom: 1px solid #D3D3D3;
+}
+
+.question h2 {
+    color: #2E4B2A; /* Dark Green */
+    font-size: 1.5rem;
+}
+
+.question img {
+    max-width: 100%;
+    margin: 15px 0;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+}
+
+.question video {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+/* Svarmuligheder */
+.question ul {
+    list-style: none;
+    padding: 0;
+}
+
+.question li {
+    margin: 10px 0;
+}
+
+.question input[type="radio"] {
+    margin-right: 10px;
+}
+
+.question label {
+    color: #2E4B2A; /* Dark Green */
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Navigationsknapper */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color:#14261E ;
+    color:#C4D9B0 ;
+}
+
+#prev-button .button{
+    background-color:#14261E ;
+    color:#C4D9B0 ;
+    font-size:1.4rem ;
+    transition: background-color 0.3s ease;
+}
+
+#next-button .button {
+    background-color:#14261E ;
+    color:#C4D9B0 ;
+    font-size:1.4rem ;
+    transition: background-color 0.3s ease;
+}
+
+#finish-button .button{
+    background-color:#14261E ;
+    color:#C4D9B0 ;
+    font-size:1.4rem ;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effekter */
+.navigation button:hover {
+    background-color: #41593B; /* Gold */
+    color: #C4D9B0; /* Dark Green */
+}
+
+/* Resultatsektion */
+#quiz-results {
+    padding: 20px;
+    background-color: #FFFBEA; /* Lys gul for kontrast */
+    border: 1px solid #2E4B2A; /* Dark Green */
+    border-radius: 10px;
+    text-align: center;
+}
+
+#quiz-results h2 {
+    color: #2E4B2A; /* Dark Green */
+}
+
+#quiz-results p {
+    color: #2E4B2A; /* Dark Green */
+    font-size: 1.2rem;
+}
+
+#quiz-start {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.start-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.start-image {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.start-subtitle {
+    font-size: 24px;
+    color: #2E4B2A; /* Dark Green */
+    margin-bottom: 10px;
+}
+
+.start-description {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.start-button {
+    background-color: #14261E; /* Light Orange */
+    color: #C4D9B0; /* White */
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #41593B; /* Gold */
+}
+
+
+
+
+
+
+
+
+
+
 .footer {
     background-color: #14261E;
     color: #728B64;
