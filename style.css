@@ -315,10 +315,10 @@ p {
 /* Generelle indstillinger for quizzen */
 #quiz-container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 20px;
     background-color: #C4D9B0; /* Light Beige */
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -328,18 +328,16 @@ p {
 /* Spørgsmål */
 .question {
     padding: 20px;
-    border-bottom: 1px solid #D3D3D3;
 }
 
 .question h2 {
-    color: #2E4B2A; /* Dark Green */
+    color: #41593B;
     font-size: 1.5rem;
 }
 
 .question img {
     max-width: 100%;
     margin: 15px 0;
-    border: 1px solid #D3D3D3;
     border-radius: 5px;
 }
 
@@ -364,7 +362,7 @@ p {
 }
 
 .question label {
-    color: #2E4B2A; /* Dark Green */
+    color: #41593B;
     font-size: 1rem;
     cursor: pointer;
 }
@@ -410,26 +408,14 @@ p {
 
 /* Hover effekter */
 .navigation button:hover {
-    background-color: #41593B; /* Gold */
-    color: #C4D9B0; /* Dark Green */
+    background-color: #41593B; 
+    color: #C4D9B0; 
 }
 
 /* Resultatsektion */
 #quiz-results {
     padding: 20px;
-    background-color: #FFFBEA; /* Lys gul for kontrast */
-    border: 1px solid #2E4B2A; /* Dark Green */
-    border-radius: 10px;
     text-align: center;
-}
-
-#quiz-results h2 {
-    color: #2E4B2A; /* Dark Green */
-}
-
-#quiz-results p {
-    color: #2E4B2A; /* Dark Green */
-    font-size: 1.2rem;
 }
 
 #quiz-start {
@@ -451,19 +437,19 @@ p {
 
 .start-subtitle {
     font-size: 24px;
-    color: #2E4B2A; /* Dark Green */
+    color: #41593B;
     margin-bottom: 10px;
 }
 
 .start-description {
     font-size: 18px;
-    color: #555;
+    color: #3E3C2F;
     margin-bottom: 20px;
 }
 
 .start-button {
-    background-color: #14261E; /* Light Orange */
-    color: #C4D9B0; /* White */
+    background-color: #14261E;
+    color: #C4D9B0;
     padding: 10px 20px;
     font-size: 18px;
     border: none;
@@ -473,9 +459,13 @@ p {
 }
 
 .start-button:hover {
-    background-color: #41593B; /* Gold */
+    background-color: #41593B;
 }
 
+
+input[type="radio"]:checked {
+    accent-color: #41593b; /* Orange farve */
+}
 
 
 

@@ -75,7 +75,6 @@ $hero_text = get_field('hero_text', get_the_ID());
 
     <!-- Quiz spørgsmål -->
     <div id="quiz-questions" style="display: none;">
-        <h2><?php the_title(); ?></h2>
         <form id="quiz-form">
             <?php foreach ($questions as $index => $question) : ?>
                 <div class="question" data-question-index="<?php echo $index; ?>" style="display: <?php echo $index === 0 ? 'block' : 'none'; ?>;">
@@ -122,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
         startPage.style.display = 'none'; // Skjul startsiden
         quizQuestions.style.display = 'block'; // Vis quizzen
     });
-    
+
     const questions = document.querySelectorAll('.question');
     const nextButton = document.getElementById('next-button');
     const prevButton = document.getElementById('prev-button');
