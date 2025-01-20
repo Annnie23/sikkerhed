@@ -154,3 +154,10 @@ function render_quiz_statistics_page() {
     echo '</div>';
 }
 
+function enqueue_leaflet_scripts() {
+    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+    wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_leaflet_scripts');
+
+

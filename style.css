@@ -36,6 +36,20 @@ p {
     color: #14261E;
 }
 
+ul {
+    padding-left: 20px; /* Tilføj padding på venstre side */
+}
+
+li{
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #14261E;
+
+}
+
+::marker {
+    color: #41593B;
+}
 .button{
     background-color:#14261E ;
     color:#C4D9B0 ;
@@ -228,7 +242,7 @@ p {
     align-items: center;
     margin: 100px 0;
     background-color: #C4D9B0;
-    height: 400px;
+    height: 500px;
 }
 
 .link-section h2 {
@@ -237,7 +251,9 @@ p {
 
 .link-section .button-container {
     display: flex;
-    gap: 20px; /* Afstand mellem links */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .link-section .button {
@@ -309,6 +325,18 @@ p {
     padding: 0 60px 0 0;
 }
 
+
+.sik-section {
+    margin: 100px 0;
+    text-align: left;
+    gap: 20px;
+    padding: 20px;
+    margin: 60px;
+}
+.sik-section h2 {
+    padding-bottom: 20px;
+    padding-top: 100px;
+}
 
 
 
@@ -499,4 +527,40 @@ input[type="radio"]:checked {
 
 .footer .footer-links a:hover {
     color: #C4D9B0;
+}
+
+
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    display: none; /* Skjules som standard */
+    cursor: pointer;
+    z-index: 1000; /* Sørger for, at knappen er over andre elementer */
+}
+
+#scrollToTop img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.map-container {
+    display: flex;
+    flex-direction: row; /* Side om side layout */
+    height: 100%; /* Fyld hele højden af skærmen */
+}
+
+.text-content {
+    flex: 1; /* Fyld halvdelen af bredden */
+    padding: 40px;
+    color: #2e4b2a; /* Mørk grøn tekst */
+}
+
+#map {
+    flex: 1; /* Fyld den anden halvdel */
+    height: 100%; /* Sørg for, at kortet fylder hele højden */
 }
