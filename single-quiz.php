@@ -17,7 +17,7 @@ if ($query->have_posts()) :
         // Liste over alle spørgsmål
         $questions = [];
 
-        for ($i = 1; $i <= 5; $i++) { // Juster antallet af spørgsmål her
+        for ($i = 1; $i <= 20; $i++) { // Juster antallet af spørgsmål her
             $group = get_field("question_{$i}_group");
             if ($group) {
                 // Hent svar-gruppen
