@@ -567,3 +567,107 @@ input[type="radio"]:checked {
 
 
 
+/* Mobilvenlig hero sektion */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh; /* Mindre højde på mobil */
+        background-attachment: scroll; /* Deaktiver parallax-effekt */
+    }
+
+    .hero-text {
+        font-size: 1.5rem;
+        padding: 0 20px;
+    }
+}
+
+/* Mobilvenlig content section */
+@media (max-width: 768px) {
+    .content-block {
+        flex-direction: column; /* Stak elementer vertikalt */
+        align-items: center;
+        text-align: center;
+    }
+
+    .content-block img {
+        width: 90%; /* Gør billederne mindre */
+    }
+
+    .text-content {
+        padding: 20px;
+    }
+}
+
+/* Justering af knapper og sektioner på mobil */
+@media (max-width: 768px) {
+    .link-section,
+    .link-section-2 {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .link-section .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .link-section .button {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+/* Kolonner til mobil */
+@media (max-width: 768px) {
+    .columns {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .column {
+        padding: 0;
+    }
+}
+
+/* Quiz-sektion til mobil */
+@media (max-width: 768px) {
+    #quiz-container {
+        padding: 15px;
+    }
+
+    .question h2 {
+        font-size: 1.2rem;
+    }
+
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navigation button {
+        width: 100%;
+    }
+}
+
+/* Footer til mobil */
+@media (max-width: 768px) {
+    .footer .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Justering af kort-sektion */
+@media (max-width: 768px) {
+    .map-container {
+        flex-direction: column;
+    }
+
+    .text-content {
+        padding: 20px;
+        text-align: center;
+    }
+
+    #map {
+        height: 300px; /* Reducer kortets højde */
+    }
+}
