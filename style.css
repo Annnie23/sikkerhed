@@ -235,63 +235,93 @@ li{
 
 }
 
+/* Link Section */
 .link-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px 0;
-    background-color: #C4D9B0;
+    position: relative;
+    margin: 40px 0;
+}
+
+.image-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
     height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-.link-section h2 {
-    margin-bottom: 20px;
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.link-section .button-container {
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay for darkening the image */
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
 }
 
-.link-section .button {
-    display: inline-block;
-    margin: 40px;
-    padding: 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    background-color: #41593B;
-}
-
-.link-section .button:hover {
-    background-color: #14261E;
-}
-
-.link-section-2 {
+.content-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centrerer lodret */
-    align-items: center; /* Centrerer vandret */
-    text-align: center;
-    margin: 100px 0 0;
-    background-color: #C4D9B0;
-    height: 400px;
-}
-
-.link-section-2 .button {
-    display: inline-block;
-    margin: 40px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
     padding: 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    background-color: #41593B;
 }
 
-.link-section-2 .button:hover {
-    background-color: #14261E;
+.left-side {
+    flex: 1;
+    
+    color: white;
+    text-align: left;
 }
+
+.left-side p{
+    color: #C4D9B0;
+}
+
+.right-side {
+    flex: 1;
+    
+    color: white;
+    text-align: left;
+}
+
+.right-side h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.chapter-dropdown {
+    width: 100%;
+    padding: 20px;
+    background-color: #41593B;
+    color: #C4D9B0;
+    border-radius: 5px;
+    font-size: 1rem;
+    border: none;
+    margin-top: 10px;
+}
+
+.chapter-dropdown option {
+    background-color: #41593B;
+    color: #C4D9B0;
+}
+
 
 
 

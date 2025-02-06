@@ -24,18 +24,32 @@ get_header(); // Indlæser headeren
 </div>
 
 <div class="link-section">
-    <h2><?php echo esc_html(get_field('new_section_header')); ?></h2>
-    <div class="button-container">
-    <a href="<?php echo get_permalink(186); ?>#kapitel-1" class="button" id="link_knap_1">Kapitel 1</a>
-        <a href="<?php echo get_permalink(186); ?>#kapitel-2" class="button" id="link_knap_2">Kapitel 2</a>
-        <a href="<?php echo get_permalink(186); ?>#kapitel-3" class="button" id="link_knap_3">Kapitel 3</a>
-        <a href="<?php echo get_permalink(186); ?>#kapitel-4" class="button" id="link_knap_4">Kapitel 4</a>
-        <a href="<?php echo get_permalink(186); ?>#kapitel-5" class="button" id="link_knap_5">Kapitel 5</a>
-        <a href="<?php echo get_permalink(186); ?>#kapitel-6" class="button" id="link_knap_6">Kapitel 6</a>
-        <a href="<?php echo get_permalink(186); ?>#kapitel-7" class="button" id="link_knap_7">Kapitel 7</a>
-        <a href="<?php echo get_permalink(186); ?>#kapitel-8" class="button" id="link_knap_8">Kapitel 8</a>
+    <div class="image-section">
+        <img src="<?php echo esc_url(get_field('new_section_image')); ?>" alt="">
+        <div class="overlay">
+            <div class="content-container">
+                <div class="left-side">
+                    <p><?php echo esc_html(get_field('new_section_description')); ?></p>
+                </div>
+                <div class="right-side">
+                    <h2><?php echo esc_html(get_field('new_section_header')); ?></h2>
+                    <select class="chapter-dropdown" onchange="window.location.href=this.value;">
+                        <option value="<?php echo get_permalink(186); ?>#kapitel-1">Kapitel 1</option>
+                        <option value="<?php echo get_permalink(186); ?>#kapitel-2">Kapitel 2</option>
+                        <option value="<?php echo get_permalink(186); ?>#kapitel-3">Kapitel 3</option>
+                        <option value="<?php echo get_permalink(186); ?>#kapitel-4">Kapitel 4</option>
+                        <option value="<?php echo get_permalink(186); ?>#kapitel-5">Kapitel 5</option>
+                        <option value="<?php echo get_permalink(186); ?>#kapitel-6">Kapitel 6</option>
+                        <option value="<?php echo get_permalink(186); ?>#kapitel-7">Kapitel 7</option>
+                        <option value="<?php echo get_permalink(186); ?>#kapitel-8">Kapitel 8</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 
 
