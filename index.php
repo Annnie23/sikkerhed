@@ -26,7 +26,7 @@ get_header(); // Indlæser headeren
 <div class="link-section">
     <h2><?php echo esc_html(get_field('new_section_header')); ?></h2>
     <div class="button-container">
-        <a href="<?php echo get_permalink(186); ?>#kapitel-1" class="button" id="link_knap_1">Kapitel 1</a>
+    <a href="<?php echo get_permalink(186); ?>#kapitel-1" class="button" id="link_knap_1">Kapitel 1</a>
         <a href="<?php echo get_permalink(186); ?>#kapitel-2" class="button" id="link_knap_2">Kapitel 2</a>
         <a href="<?php echo get_permalink(186); ?>#kapitel-3" class="button" id="link_knap_3">Kapitel 3</a>
         <a href="<?php echo get_permalink(186); ?>#kapitel-4" class="button" id="link_knap_4">Kapitel 4</a>
@@ -36,6 +36,8 @@ get_header(); // Indlæser headeren
         <a href="<?php echo get_permalink(186); ?>#kapitel-8" class="button" id="link_knap_8">Kapitel 8</a>
     </div>
 </div>
+
+
 
 
 

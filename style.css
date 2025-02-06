@@ -269,7 +269,6 @@ li{
     background-color: #14261E;
 }
 
-
 .link-section-2 {
     display: flex;
     flex-direction: column;
@@ -326,6 +325,7 @@ li{
 }
 
 
+
 .sik-section {
     margin: 100px 0;
     text-align: left;
@@ -337,7 +337,6 @@ li{
     padding-bottom: 20px;
     padding-top: 100px;
 }
-
 
 
 /* Generelle indstillinger for quizzen */
@@ -495,6 +494,21 @@ input[type="radio"]:checked {
     accent-color: #41593b; /* Orange farve */
 }
 
+
+.restart-button {
+    background-color: #FFA500; /* Lys orange */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.restart-button:hover {
+    background-color: #FFD700; /* Guld */
+}
 
 
 

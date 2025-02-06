@@ -2,11 +2,11 @@
 /* Template Name: Quiz Page */
 get_header();
 
-// Hent quizen med titel 'Opvask'
+// Hent quizen med titel 'Skydesikkerhed'
 $args = array(
     'post_type' => 'quiz',
     'posts_per_page' => 1, // Hent kun en quiz (kan justeres efter behov)
-    'post_title' => 'Opvask' // Navnet på quizzen, som du leder efter
+    'post_title' => 'Skydesikkerhed' // Navnet på quizzen, som du leder efter
 );
 
 $query = new WP_Query($args);
@@ -21,35 +21,39 @@ if ($query->have_posts()) :
             $group = get_field("question_{$i}_group");
             if ($group) {
                 // Hent svar-gruppen
-                $answers = $group['answers']; 
-
+                $answers = isset($group['answers']) ? $group['answers'] : [];
+        
                 $questions[] = [
-                    'text' => $group['text'], // Hovedteksten for spørgsmålet
-                    'image' => $group['image'], // Hent billede
-                    'video' => $group['video'], // Hent video
+                    'text' => isset($group['text']) ? $group['text'] : '', // Hovedteksten for spørgsmålet
+                    'image' => isset($group['image']) ? $group['image'] : '', // Hent billede
+                    'video' => isset($group['video']) ? $group['video'] : '', // Hent video
                     'answers' => [
                         [
-                            'text' => $answers['answer_1_text'],
-                            'is_correct' => $answers['answer_1_correct'],
+                            'text' => isset($answers['answer_1_text']) ? $answers['answer_1_text'] : '',
+                            'is_correct' => isset($answers['answer_1_correct']) ? $answers['answer_1_correct'] : false,
                         ],
                         [
-                            'text' => $answers['answer_2_text'],
-                            'is_correct' => $answers['answer_2_correct'],
+                            'text' => isset($answers['answer_2_text']) ? $answers['answer_2_text'] : '',
+                            'is_correct' => isset($answers['answer_2_correct']) ? $answers['answer_2_correct'] : false,
                         ],
                         [
-                            'text' => $answers['answer_3_text'],
-                            'is_correct' => $answers['answer_3_correct'],
+                            'text' => isset($answers['answer_3_text']) ? $answers['answer_3_text'] : '',
+                            'is_correct' => isset($answers['answer_3_correct']) ? $answers['answer_3_correct'] : false,
+                        ],
+                        [
+                            'text' => isset($answers['answer_4_text']) ? $answers['answer_4_text'] : '',
+                            'is_correct' => isset($answers['answer_4_correct']) ? $answers['answer_4_correct'] : false,
                         ],
                     ],
                 ];
             }
         }
         ?>
-
-<?php
-$hero_image = get_field('hero_image', get_the_ID());
-$hero_text = get_field('hero_text', get_the_ID());
-?>
+        
+        <?php
+        $hero_image = get_field('hero_image', get_the_ID());
+        $hero_text = get_field('hero_text', get_the_ID());
+        ?>
 
 <div class="content">
 <!-- Hero Section -->
@@ -92,7 +96,7 @@ $hero_text = get_field('hero_text', get_the_ID());
                         <?php foreach ($question['answers'] as $answerIndex => $answer) : ?>
                             <li>
                                 <label>
-                                    <input type="radio" name="question_<?php echo $index; ?>" value="<?php echo $answerIndex; ?>" data-correct="<?php echo $answer['is_correct'] ? 'true' : 'false'; ?>">
+                                    <input type="checkbox" name="question_<?php echo $index; ?>[]" value="<?php echo $answerIndex; ?>" data-correct="<?php echo $answer['is_correct'] ? 'true' : 'false'; ?>">
                                     <?php echo esc_html($answer['text']); ?>
                                 </label>
                             </li>
@@ -104,6 +108,8 @@ $hero_text = get_field('hero_text', get_the_ID());
                 <button type="button" id="prev-button" style="display: none;">Forrige</button>
                 <button type="button" id="next-button">Næste</button>
                 <button type="submit" id="finish-button" style="display: none;">Afslut Quiz</button>
+                <button id="restart-quiz" class="restart-button" style="display:none;">Start forfra</button>
+
             </div>
         </form>
         <div id="quiz-results" style="display: none;"></div>
@@ -120,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     startButton.addEventListener('click', function () {
         startPage.style.display = 'none'; // Skjul startsiden
         quizQuestions.style.display = 'block'; // Vis quizzen
+
     });
 
     const questions = document.querySelectorAll('.question');
@@ -153,27 +160,49 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('quiz-form').addEventListener('submit', function (e) {
-        e.preventDefault();
+    e.preventDefault();
 
-        let correctAnswers = 0;
-        let totalQuestions = questions.length;
+    let correctAnswers = 0;
+    let totalQuestions = questions.length;
 
-        questions.forEach((question, index) => {
-            const selectedAnswer = question.querySelector('input[type="radio"]:checked');
-            if (selectedAnswer && selectedAnswer.dataset.correct === 'true') {
-                correctAnswers++;
-            }
-        });
+    questions.forEach((question, index) => {
+        const selectedAnswers = question.querySelectorAll('input[type="checkbox"]:checked');
+        let isCorrect = true;
 
-        resultsContainer.innerHTML = `
-            <h2>Resultat</h2>
-            <p>Du svarede korrekt på ${correctAnswers} ud af ${totalQuestions} spørgsmål.</p>
-        `;
-        resultsContainer.style.display = 'block';
+        if (selectedAnswers.length === 0) {
+            isCorrect = false;
+        } else {
+            selectedAnswers.forEach((answer) => {
+                if (answer.dataset.correct !== 'true') {
+                    isCorrect = false;
+                }
+            });
+        }
+
+        if (isCorrect) {
+            correctAnswers++;
+        }
     });
 
-    showQuestion(currentQuestion);
+    resultsContainer.innerHTML = `
+        <h2>Resultat</h2>
+        <p>Du svarede korrekt på ${correctAnswers} ud af ${totalQuestions} spørgsmål.</p>
+    `;
+    resultsContainer.style.display = 'block';
+
+    // Skjul afslut-knappen og vis start forfra-knappen
+    finishButton.style.display = 'none';
+    document.getElementById("restart-quiz").style.display = 'inline-block';
+
 });
+document.getElementById("restart-quiz").addEventListener("click", function () {
+    // Naviger brugeren tilbage til forsiden af quizzen
+    window.location.href = "http://sikkerhedunderskydning.local/quiz/"; // Erstat med den relevante URL
+});
+
+});
+
+
 </script>
 
 
