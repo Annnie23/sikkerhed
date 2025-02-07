@@ -235,6 +235,39 @@ li{
 
 }
 
+.link-section-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrerer elementerne horisontalt */
+    justify-content: center; /* Centrerer dem vertikalt, hvis der er en højde */
+    text-align: center; /* Sikrer, at teksten er centreret */
+    width: 100%; /* Sikrer, at sektionen fylder hele bredden */
+    padding: 100px 20px; /* Tilføjer lidt luft omkring */
+    background-color: #C4D9B0;
+}
+
+.link-section-2 a {
+    margin-top: 15px; /* Lidt afstand fra teksten til knappen */
+}
+
+.button2 {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 20px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: #14261E;
+    color: #C4D9B0;
+    font-size: 1.4rem;
+}
+
+.button2:hover {
+    background-color: #41593B;
+    transition: background-color 0.3s ease;
+}
 /* Link Section */
 .link-section {
     display: flex;
@@ -249,7 +282,7 @@ li{
     align-items: center;
     justify-content: space-between;
     position: relative;
-    height: 500px;
+    height: 330px;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -271,16 +304,13 @@ li{
     background: rgba(0, 0, 0, 0.5); /* Overlay for darkening the image */
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .content-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 100%;
-    max-width: 1200px;
-    padding: 20px;
+    padding: 60px 40px;
 }
 
 .left-side {
@@ -304,6 +334,13 @@ li{
 .right-side h2 {
     margin-bottom: 10px;
     font-size: 2rem;
+    color: #C4D9B0;
+}
+
+.left-side h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #C4D9B0;
 }
 
 .chapter-dropdown {
@@ -321,8 +358,6 @@ li{
     background-color: #41593B;
     color: #C4D9B0;
 }
-
-
 
 
 .new-section {
