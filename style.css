@@ -122,6 +122,8 @@ li{
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Sæt et højt z-index for at sikre, at menuen er foran */
+
 }
 
 .menu a {
@@ -134,7 +136,7 @@ li{
 }
 
 .menu a:hover {
-    background-color: #41593B; /* Orange */
+    background-color: #41593B; 
     border-radius: 3px;
 }
 
@@ -162,11 +164,15 @@ li{
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: 100vh; /* Fylder hele skærmhøjden */
+    min-height: 100vh; /* Bedre håndtering af mobilhøjder */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Parallax-effekt */
-    z-index: -1;
+    background-attachment: scroll; /* Fixer parallax-problem på mobil */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
 }
 
 .hero-section::before {
@@ -176,64 +182,94 @@ li{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Sort overlay med 50% opacitet */
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    position: relative;
     color: #C4D9B0;
     font-size: 2rem;
     font-weight: bold;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-    z-index: 2;
+    padding: 10px;
 }
+
+/* Mobilvenlighed */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 3rem;
+        padding: 15px;
+    }
+}
+
 
 
 /* Content Section */
 .content-section {
     margin: 80px 0;
 }
+
 .content-block {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
     padding: 20px;
     margin: 20px;
 }
 
+/* Billede */
 .content-block img {
     width: 50%;
     border-radius: 2px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* Tekstindhold */
 .text-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
     padding: 0 40px;
-    height: 100%;
     width: 100%;
-
 }
 
+/* Knap */
 .text-content .button {
     display: inline-block;
-    margin-top: 50px;
-    padding: 20px 20px;
+    margin-top: 30px;
+    padding: 15px 20px;
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
-
 }
+
+@media (max-width: 1200px) {
+    .content-block {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .content-block img {
+        width: 90%;
+    }
+
+    .text-content {
+        padding: 0 20px;
+    }
+
+    .text-content .button {
+        margin-top: 20px;
+        padding: 12px 15px;
+    }
+}
+
 
 .link-section-2 {
     display: flex;
@@ -268,6 +304,16 @@ li{
     background-color: #41593B;
     transition: background-color 0.3s ease;
 }
+
+@media (max-width: 768px) {
+    .link-section-2 {
+        height: 100vh; /* Fylder hele skærmen kun på mobil */
+        padding: 20px; /* Justerer padding, så indholdet forbliver centreret */
+    }
+}
+
+
+
 /* Link Section */
 .link-section {
     display: flex;
@@ -277,16 +323,17 @@ li{
     margin: 40px 0;
 }
 
+/* Billedsektion */
 .image-section {
     display: flex;
-    align-items: center;
+    align-items: stretch; /* Sikrer, at billedet matcher tekstens højde */
     justify-content: space-between;
     position: relative;
     height: 330px;
     width: 100%;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll; /* Fixer parallax-problem på mobil */
 }
 
 .image-section img {
@@ -295,57 +342,55 @@ li{
     object-fit: cover;
 }
 
+/* Overlay */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Overlay for darkening the image */
+    background: rgba(0, 0, 0, 0.656);
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
+/* Indholdscontainer */
 .content-container {
     display: flex;
     justify-content: space-between;
+    align-items: stretch; /* Holder begge sider lige høje */
     width: 100%;
     padding: 60px 40px;
 }
 
-.left-side {
-    flex: 1;
-    
-    color: white;
-    text-align: left;
-}
-
-.left-side p{
-    color: #C4D9B0;
-}
-
+/* Venstre & højre side */
+.left-side,
 .right-side {
     flex: 1;
-    
     color: white;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+/* Overskrifter */
+.left-side h2,
 .right-side h2 {
     margin-bottom: 10px;
     font-size: 2rem;
     color: #C4D9B0;
 }
 
-.left-side h2 {
-    margin-bottom: 10px;
-    font-size: 2rem;
+.left-side p {
     color: #C4D9B0;
 }
 
+/* Dropdown */
 .chapter-dropdown {
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     background-color: #41593B;
     color: #C4D9B0;
     border-radius: 5px;
@@ -354,10 +399,55 @@ li{
     margin-top: 10px;
 }
 
+/* Dropdown-optioner */
 .chapter-dropdown option {
     background-color: #41593B;
     color: #C4D9B0;
 }
+
+@media (max-width: 1200px) {
+    .image-section {
+        background: #3E3C2F; /* Erstattet billede med baggrundsfarve */
+        height: 100vh; /* Fyld hele skærmen */
+        min-height: 250px; /* Sikrer, at sektionen ikke bliver for lille */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-section img {
+        display: none; /* Skjuler billedet */
+    }
+
+    .overlay {
+        background: none; /* Fjerner overlay-effekten */
+    }
+
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+        
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .right-side {
+        margin-top: 60px;
+    }
+
+    .chapter-dropdown {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
+
 
 
 .new-section {
@@ -389,6 +479,34 @@ li{
     padding: 0 60px 0 0;
 }
 
+@media (max-width: 768px) {
+    .columns {
+        flex-direction: column; /* Kolonner bliver stabler på mobil */
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .column {
+        padding: 0; /* Fjerner side-padding for bedre mobilvisning */
+        width: 100%;
+    }
+
+    .new-section {
+        text-align: center; /* Centrering af tekst */
+        padding: 20px;
+        margin: 40px 0; /* Mindre margin på mobil */
+    }
+
+    .new-section h2 {
+        font-size: 2.5rem; /* Mindre overskrift på mobil */
+    }
+
+    .new-section h3{
+        font-size: 1.4rem; /* Mindre tekststørrelse på mobil */
+    }
+}
+
 
 
 .sik-section {
@@ -398,10 +516,30 @@ li{
     padding: 20px;
     margin: 60px;
 }
+
 .sik-section h2 {
     padding-bottom: 20px;
     padding-top: 100px;
 }
+
+/* Responsivt layout for mobil */
+@media (max-width: 768px) {
+    .sik-section {
+        margin: 20px; /* Reducer margin på mobil */
+        padding: 15px; /* Reducer padding på mobil */
+    }
+
+    .sik-section h2 {
+        padding-top: 40px; /* Juster top-padding for overskriften på mobil */
+        padding-bottom: 10px; /* Juster bottom-padding for overskriften på mobil */
+    }
+
+    .sik-section h2,
+    .sik-section p {
+        text-align: center; /* Centrer teksten på mobil */
+    }
+}
+
 
 
 /* Generelle indstillinger for quizzen */
@@ -414,9 +552,6 @@ li{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-
-
 /* Spørgsmål */
 .question {
     padding: 20px;
@@ -424,11 +559,12 @@ li{
 
 .question h2 {
     color: #41593B;
-    font-size: 1.5rem;
+    font-size: 2rem; /* Større fontstørrelse på spørgsmål */
 }
 
 .question img {
-    max-width: 100%;
+    max-width: 100%; /* Gør billederne større */
+    width: 100%; /* Sørger for, at billederne fylder hele bredden */
     margin: 15px 0;
     border-radius: 5px;
 }
@@ -455,7 +591,7 @@ li{
 
 .question label {
     color: #41593B;
-    font-size: 1rem;
+    font-size: 1.2rem; /* Større tekststørrelse for svarmuligheder */
     cursor: pointer;
 }
 
@@ -467,41 +603,41 @@ li{
 }
 
 .navigation button {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 12px 25px; /* Større knapper */
+    font-size: 1.2rem; /* Større tekst på knapper */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    background-color:#14261E ;
-    color:#C4D9B0 ;
+    background-color: #14261E;
+    color: #C4D9B0;
 }
 
-#prev-button .button{
-    background-color:#14261E ;
-    color:#C4D9B0 ;
-    font-size:1.4rem ;
+#prev-button .button {
+    background-color: #14261E;
+    color: #C4D9B0;
+    font-size: 1.4rem;
     transition: background-color 0.3s ease;
 }
 
 #next-button .button {
-    background-color:#14261E ;
-    color:#C4D9B0 ;
-    font-size:1.4rem ;
+    background-color: #14261E;
+    color: #C4D9B0;
+    font-size: 1.4rem;
     transition: background-color 0.3s ease;
 }
 
-#finish-button .button{
-    background-color:#14261E ;
-    color:#C4D9B0 ;
-    font-size:1.4rem ;
+#finish-button .button {
+    background-color: #14261E;
+    color: #C4D9B0;
+    font-size: 1.4rem;
     transition: background-color 0.3s ease;
 }
 
 /* Hover effekter */
 .navigation button:hover {
-    background-color: #41593B; 
-    color: #C4D9B0; 
+    background-color: #41593B;
+    color: #C4D9B0;
 }
 
 /* Resultatsektion */
@@ -528,13 +664,13 @@ li{
 }
 
 .start-subtitle {
-    font-size: 24px;
+    font-size: 2rem; /* Større tekststørrelse */
     color: #41593B;
     margin-bottom: 10px;
 }
 
 .start-description {
-    font-size: 18px;
+    font-size: 1.4rem; /* Større tekststørrelse */
     color: #3E3C2F;
     margin-bottom: 20px;
 }
@@ -542,8 +678,8 @@ li{
 .start-button {
     background-color: #14261E;
     color: #C4D9B0;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 12px 25px;
+    font-size: 1.4rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -554,18 +690,16 @@ li{
     background-color: #41593B;
 }
 
-
 input[type="radio"]:checked {
     accent-color: #41593b; /* Orange farve */
 }
-
 
 .restart-button {
     background-color: #FFA500; /* Lys orange */
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 25px; /* Større knapper */
+    font-size: 1.2rem; /* Større tekststørrelse */
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
@@ -573,6 +707,48 @@ input[type="radio"]:checked {
 
 .restart-button:hover {
     background-color: #FFD700; /* Guld */
+}
+
+/* Responsivt layout for mobil */
+@media (max-width: 768px) {
+    /* Generelle indstillinger for quizzen */
+    #quiz-container {
+        padding: 15px;
+        margin: 20px;
+    }
+
+    .question h2 {
+        font-size: 1.8rem; /* Reducer størrelse på overskriften */
+        text-align: center;
+    }
+
+    .question img,
+    .question video {
+        max-width: 100%;
+        width: 100%; /* Gør billederne og videoer meget større på mobil */
+        height: auto; /* Bevar højden proportionelt */
+        margin: 20px 0;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation button {
+        width: 100%; /* Gør knapperne bredere på mobil */
+        margin-bottom: 10px;
+    }
+
+    .start-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .restart-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }
 
 
@@ -608,6 +784,32 @@ input[type="radio"]:checked {
     color: #C4D9B0;
 }
 
+/* Mobilvenlige tilpasninger */
+@media (max-width: 768px) {
+    .footer .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer {
+        padding: 30px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 20px 10px;
+        font-size: 0.7rem;
+    }
+
+    .footer .footer-links a {
+        font-size: 0.9rem;
+    }
+}
+
+
 
 #scrollToTop {
     position: fixed;
@@ -631,6 +833,7 @@ input[type="radio"]:checked {
     display: flex;
     flex-direction: row; /* Side om side layout */
     height: 100%; /* Fyld hele højden af skærmen */
+    gap: 20px; /* Tilføj lidt afstand mellem tekst og kort */
 }
 
 .text-content {
@@ -641,112 +844,28 @@ input[type="radio"]:checked {
 
 #map {
     flex: 1; /* Fyld den anden halvdel */
-    height: 100%; /* Sørg for, at kortet fylder hele højden */
+    height: 100vh; /* Fast højde */
 }
 
-
-
-/* Mobilvenlig hero sektion */
-@media (max-width: 768px) {
-    .hero-section {
-        height: 60vh; /* Mindre højde på mobil */
-        background-attachment: scroll; /* Deaktiver parallax-effekt */
-    }
-
-    .hero-text {
-        font-size: 1.5rem;
-        padding: 0 20px;
-    }
-}
-
-/* Mobilvenlig content section */
-@media (max-width: 768px) {
-    .content-block {
-        flex-direction: column; /* Stak elementer vertikalt */
-        align-items: center;
-        text-align: center;
-    }
-
-    .content-block img {
-        width: 90%; /* Gør billederne mindre */
-    }
-
-    .text-content {
-        padding: 20px;
-    }
-}
-
-/* Justering af knapper og sektioner på mobil */
-@media (max-width: 768px) {
-    .link-section,
-    .link-section-2 {
-        height: auto;
-        padding: 40px 20px;
-    }
-
-    .link-section .button-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .link-section .button {
-        width: 80%;
-        text-align: center;
-    }
-}
-
-/* Kolonner til mobil */
-@media (max-width: 768px) {
-    .columns {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .column {
-        padding: 0;
-    }
-}
-
-/* Quiz-sektion til mobil */
-@media (max-width: 768px) {
-    #quiz-container {
-        padding: 15px;
-    }
-
-    .question h2 {
-        font-size: 1.2rem;
-    }
-
-    .navigation {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .navigation button {
-        width: 100%;
-    }
-}
-
-/* Footer til mobil */
-@media (max-width: 768px) {
-    .footer .footer-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-/* Justering af kort-sektion */
+/* Mobilvenlig version */
 @media (max-width: 768px) {
     .map-container {
-        flex-direction: column;
+        flex-direction: column; /* Ændre layoutet til en kolonne på mobil */
+        gap: 10px; /* Mindre afstand mellem tekst og kort på mobil */
+        align-items: center; /* Centrer indholdet vertikalt */
+        justify-content: center; /* Centrer indholdet horisontalt */
     }
 
-    .text-content {
-        padding: 20px;
-        text-align: center;
+    .text-content, #map {
+        flex: none; /* Fjern flex for at sikre, at de ikke fylder for meget */
+        width: 100%; /* Gør begge sektioner 100% brede */
+        padding: 20px; /* Mindre padding på mobil */
+        text-align: center; /* Centrer teksten */
     }
 
     #map {
-        height: 300px; /* Reducer kortets højde */
+        height: 50vh; /* Halv højde på mobil */
     }
 }
+
+

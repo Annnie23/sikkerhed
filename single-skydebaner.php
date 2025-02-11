@@ -3,7 +3,6 @@
 get_header(); // Indlæser headeren
 ?>
 
-<div class="content">
 
     <!-- Hero Section -->
     <div class="hero-section" style="background-image: url('<?php echo esc_url(get_field('hero_image')); ?>');">
@@ -25,7 +24,7 @@ get_header(); // Indlæser headeren
         </div>
 
         <!-- Højre kolonne (kortet) -->
-        <div id="map" style="height: 500px;"></div>
+        <div id="map" style=""></div>
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -187,7 +186,6 @@ get_header(); // Indlæser headeren
         </script>
     </div>
 
-</div>
 
 <?php
 get_footer(); // Indlæser footeren
