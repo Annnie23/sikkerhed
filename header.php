@@ -9,6 +9,12 @@
     <header>
         <nav>
 
+            <div class="site-branding">
+                <a href="<?php echo home_url(); ?>" class="site-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="<?php bloginfo('name'); ?>">
+                </a>
+            </div>
+
             <!-- Burger Menu Button -->
             <button class="burger-menu" aria-label="Menu">
                 <span></span>

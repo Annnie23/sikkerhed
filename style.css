@@ -83,6 +83,16 @@ li{
 .whos-the-boss-5-hsla { color: hsla(153, 31, 11, 1); }
 
 
+.site-branding{
+        position: absolute; /* Eller fixed hvis den skal forblive på skærmen ved scroll */
+        width: 100%;
+        z-index: 10; /* Sørger for at den er over hero-sektionen */
+}
+
+.site-logo img{
+    width: 300px;
+    height: 60px;
+}
 
 
 /* Placering af burgerknappen */
@@ -544,7 +554,7 @@ li{
 
 /* Generelle indstillinger for quizzen */
 #quiz-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 50px auto;
     padding: 20px;
     background-color: #C4D9B0; /* Light Beige */
