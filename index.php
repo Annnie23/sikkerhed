@@ -18,6 +18,16 @@ get_header(); // Indlæser headeren
         <div class="text-content">
             <h2><?php echo esc_html(get_field('text_1_overskrift')); ?></h2>
             <p><?php echo esc_html(get_field('text_1')); ?></p>
+        </div>
+    </div>
+</div>
+<div class="content-section">
+    <div class="content-block">
+        <img src="<?php echo esc_url(get_field('image_4')); ?>" alt="Billede 1">
+
+        <div class="text-content">
+            <h2><?php echo esc_html(get_field('text_4_overskrift')); ?></h2>
+            <p><?php echo esc_html(get_field('text_4')); ?></p>
             <a href="http://sikkerhedunderskydning.local/quiz/" class="button" id="quiz_knap_1"><?php echo esc_html(get_field('button_text')); ?></a>
         </div>
     </div>
@@ -66,6 +76,16 @@ get_header(); // Indlæser headeren
             <p><?php echo esc_html(get_field('text_2')); ?></p>
         </div>
         <img src="<?php echo esc_url(get_field('image_2')); ?>" alt="Billede 1">
+    </div>
+</div>
+
+<div class="content-section">
+    <div class="content-block">
+        <div class="text-content">
+            <h2><?php echo esc_html(get_field('text_5_overskrift')); ?></h2>
+            <p><?php echo esc_html(get_field('text_5')); ?></p>
+        </div>
+        <img src="<?php echo esc_url(get_field('image_5')); ?>" alt="Billede 1">
     </div>
 </div>
 

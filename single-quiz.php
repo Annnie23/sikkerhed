@@ -70,7 +70,6 @@ if ($query->have_posts()) :
     <!-- Startside -->
     <div id="quiz-start">
         <div class="start-content">
-            <img src="https://via.placeholder.com/400" alt="Quiz billede" class="start-image">
             <h2 class="start-subtitle">Velkommen til sikkerhed under skydning</h2>
             <p class="start-description">Denne quiz vil teste din viden om sikkerhed før, under og efter skydning</p>
             <button id="start-button" class="start-button">Start Quiz</button>

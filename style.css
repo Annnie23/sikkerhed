@@ -17,7 +17,7 @@ body {
 
 
 h1 {
-    font-size: 4.2rem;
+    font-size: 6rem;
 }
 
 h2 {
@@ -51,14 +51,14 @@ li{
     color: #41593B;
 }
 .button{
-    background-color:#14261E ;
-    color:#C4D9B0 ;
+    background-color:#41593B ;
+    color:#f1f1f1 ;
     font-size:1.4rem ;
     transition: background-color 0.3s ease;
 }
 
 .button:hover{
-    background-color:#41593B ;
+    background-color:#14261E ;
 }
 
 /* Color Theme Swatches in Hex */
@@ -92,6 +92,8 @@ li{
 .site-logo img{
     width: 300px;
     height: 60px;
+    padding-left: 20px;
+    padding-top: 10px;
 }
 
 
@@ -114,7 +116,7 @@ li{
 .burger-menu span {
     width: 100%;
     height: 3px;
-    background-color: #C4D9B0; /* Militærgrøn */
+    background-color: #41593B; /* Militærgrøn */
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
@@ -192,15 +194,15 @@ li{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .hero-text {
     position: relative;
-    color: #C4D9B0;
-    font-size: 2rem;
+    color: #f1f1f1;
+    font-size: 6rem;
     font-weight: bold;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     padding: 10px;
 }
 
@@ -289,11 +291,22 @@ li{
     text-align: center; /* Sikrer, at teksten er centreret */
     width: 100%; /* Sikrer, at sektionen fylder hele bredden */
     padding: 100px 20px; /* Tilføjer lidt luft omkring */
-    background-color: #C4D9B0;
+    background-color: #41593B;
 }
 
 .link-section-2 a {
     margin-top: 15px; /* Lidt afstand fra teksten til knappen */
+}
+.link-section-2 h2 {
+    color: #C4D9B0;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.link-section-2 p {
+    color: #f1f1f1;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
 }
 
 .button2 {
@@ -305,13 +318,13 @@ li{
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
-    background-color: #14261E;
-    color: #C4D9B0;
+    background-color: #30422c;
+    color: #f1f1f1;
     font-size: 1.4rem;
 }
 
 .button2:hover {
-    background-color: #41593B;
+    background-color: #14261E;
     transition: background-color 0.3s ease;
 }
 
@@ -339,7 +352,7 @@ li{
     align-items: stretch; /* Sikrer, at billedet matcher tekstens højde */
     justify-content: space-between;
     position: relative;
-    height: 330px;
+    height: 500px;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -371,7 +384,7 @@ li{
     justify-content: space-between;
     align-items: stretch; /* Holder begge sider lige høje */
     width: 100%;
-    padding: 60px 40px;
+    padding: 40px 40px;
 }
 
 /* Venstre & højre side */
@@ -382,19 +395,21 @@ li{
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-right: 10px;
 }
 
 /* Overskrifter */
 .left-side h2,
 .right-side h2 {
     margin-bottom: 10px;
-    font-size: 2rem;
+    font-size: 2.3rem;
     color: #C4D9B0;
 }
 
 .left-side p {
-    color: #C4D9B0;
+    color: #f1f1f1;
+    font-size: 1.5rem;
 }
 
 /* Dropdown */
@@ -402,9 +417,9 @@ li{
     width: 100%;
     padding: 15px;
     background-color: #41593B;
-    color: #C4D9B0;
-    border-radius: 5px;
+    color: #f1f1f1;
     font-size: 1rem;
+    border-radius: 5px;
     border: none;
     margin-top: 10px;
 }
@@ -412,14 +427,17 @@ li{
 /* Dropdown-optioner */
 .chapter-dropdown option {
     background-color: #41593B;
-    color: #C4D9B0;
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 1rem;
 }
+
 
 @media (max-width: 1200px) {
     .image-section {
-        background: #3E3C2F; /* Erstattet billede med baggrundsfarve */
+        background: #41593B; /* Erstattet billede med baggrundsfarve */
         height: 100vh; /* Fyld hele skærmen */
-        min-height: 250px; /* Sikrer, at sektionen ikke bliver for lille */
+        min-height: 200px; /* Sikrer, at sektionen ikke bliver for lille */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -437,7 +455,7 @@ li{
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 30px 20px;
+        padding: 20px 20px;
         
     }
 
@@ -453,8 +471,15 @@ li{
     }
 
     .chapter-dropdown {
-        padding: 12px;
-        font-size: 0.9rem;
+        padding: 20px;
+        font-size: 1rem;
+        background-color: #30422c;
+
+    
+    }
+
+    .chapter-dropdown option {
+        background-color: #30422c;
     }
 }
 
@@ -557,9 +582,9 @@ li{
     max-width: 1200px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #C4D9B0; /* Light Beige */
+    background-color: #f1f1f1; /* Light Beige */
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Spørgsmål */
@@ -619,26 +644,26 @@ li{
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    background-color: #14261E;
+    background-color: #41593B;
     color: #C4D9B0;
 }
 
 #prev-button .button {
-    background-color: #14261E;
+    background-color: #41593B;
     color: #C4D9B0;
     font-size: 1.4rem;
     transition: background-color 0.3s ease;
 }
 
 #next-button .button {
-    background-color: #14261E;
+    background-color: #41593B;
     color: #C4D9B0;
     font-size: 1.4rem;
     transition: background-color 0.3s ease;
 }
 
 #finish-button .button {
-    background-color: #14261E;
+    background-color: #41593B;
     color: #C4D9B0;
     font-size: 1.4rem;
     transition: background-color 0.3s ease;
@@ -646,7 +671,7 @@ li{
 
 /* Hover effekter */
 .navigation button:hover {
-    background-color: #41593B;
+    background-color: #14261E;
     color: #C4D9B0;
 }
 
@@ -666,28 +691,21 @@ li{
     margin: 0 auto;
 }
 
-.start-image {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
-
 .start-subtitle {
-    font-size: 2rem; /* Større tekststørrelse */
+    font-size: 2.5rem; /* Større tekststørrelse */
     color: #41593B;
     margin-bottom: 10px;
 }
 
 .start-description {
-    font-size: 1.4rem; /* Større tekststørrelse */
+    font-size: 1.5rem; /* Større tekststørrelse */
     color: #3E3C2F;
     margin-bottom: 20px;
 }
 
 .start-button {
-    background-color: #14261E;
-    color: #C4D9B0;
+    background-color: #41593B;
+    color: #f1f1f1;
     padding: 12px 25px;
     font-size: 1.4rem;
     border: none;
@@ -697,7 +715,7 @@ li{
 }
 
 .start-button:hover {
-    background-color: #41593B;
+    background-color: #14261E;
 }
 
 input[type="radio"]:checked {
@@ -784,7 +802,7 @@ input[type="radio"]:checked {
 }
 
 .footer .footer-links a {
-    color: #728B64;
+    color: #f1f1f1;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -830,6 +848,10 @@ input[type="radio"]:checked {
     display: none; /* Skjules som standard */
     cursor: pointer;
     z-index: 1000; /* Sørger for, at knappen er over andre elementer */
+}
+
+#scrollToTop img:hover {
+    transform: scale(1.1); /* Gør billedet lidt større ved hover */
 }
 
 #scrollToTop img {
